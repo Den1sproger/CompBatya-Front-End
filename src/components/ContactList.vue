@@ -1,5 +1,5 @@
 <template>
-  <section id="leave-request">
+  <section id="contacts">
 
   </section>
 </template>
