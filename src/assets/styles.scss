@@ -1,0 +1,28 @@
+@import './variables.scss';
+
+
+@font-face {
+  font-family: 'Jost';
+  src: url('@/assets/fonts/Jost-Regular.ttf');
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  font-family: 'Inter';
+  overflow-x: hidden;
+  background-color: $background-light;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
