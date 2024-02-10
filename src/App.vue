@@ -39,6 +39,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: inset 0 0 15px $border-dark;
 }
 
 main {
@@ -50,5 +51,6 @@ footer {
   height: 200px;
   color: $text-light;
   background-color: $background-accent;
+  box-shadow: inset 0 0 15px $border-dark;
 }
 </style>
