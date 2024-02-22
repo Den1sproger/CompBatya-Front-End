@@ -4,16 +4,16 @@
     <nav>
       <ul class="nav-list">
         <li class="nav-item">
-          <a href="#leave-request">Оставить заявку</a>
+          <a href="/#leave-request">Оставить заявку</a>
         </li>
         <li class="nav-item">
           <router-link to="/about">О нас</router-link>
         </li>
         <li class="nav-item">
-          <a href="#services">Услуги</a>
+          <a href="/#services">Услуги</a>
         </li>
         <li class="nav-item">
-          <a href="#specialists">Наши мастера</a>
+          <a href="/#specialists">Наши мастера</a>
         </li>
         <li class="nav-item">
           <a href="#contacts">Контакты</a>
