@@ -4,7 +4,7 @@
     <service-item></service-item>
     <leave-request></leave-request>
   </div>
-  <specialist-list></specialist-list>
+  <specialist-item></specialist-item>
 </template>
 
 
@@ -12,7 +12,7 @@
 import GreetingUser from '@/components/GreetingUser';
 import ServiceItem from '@/components/ServiceItem';
 import LeaveRequest from '@/components/LeaveRequest';
-import SpecialistList from '@/components/SpecialistList';
+import SpecialistItem from '@/components/SpecialistItem';
 
 
 export default {
@@ -21,7 +21,7 @@ export default {
     GreetingUser,
     ServiceItem,
     LeaveRequest,
-    SpecialistList
+    SpecialistItem
   }
 }
 </script>
