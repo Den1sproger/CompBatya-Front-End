@@ -19,9 +19,6 @@
   background-color: $background-light;
   height: 80px;
   padding: 0 50px;
-
-  p {
-    color: $text-accent;
-  }
+  color: $text-dark;
 }
 </style>
