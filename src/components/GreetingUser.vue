@@ -4,7 +4,7 @@
       <div>
         <h1>Батя и Степаныч приветствуют тебя!</h1>
         <p>Ты сделал правильный выбор, что обратился к нам! Мы почикаем все твои девайсы так, что они будут работать лучше чем новые прямо с завода!</p>
-        <button class="leave-request-btn">Оставить заявку</button>
+        <button class="leave-request-btn" @click="scrollToRequestForm">Оставить заявку</button>
       </div>
     </div>
     <div class="greeting__photo">
@@ -14,6 +14,13 @@
 </template>
 
 <script>
+export default {
+  methods: {
+    scrollToRequestForm() {
+      document.getElementById('leave-request').scrollIntoView();
+    }
+  }
+}
 </script>
 
 
