@@ -1,11 +1,16 @@
 <template>
   <section id="leave-request">
-    <form class="request-form">
+    <form class="request-form" @submit.prevent="submitForm">
       <h3>Оставить заявку</h3>
-      <form-input v-model="phone" type="tel" placeholder="Телефон"></form-input>
+      <form-input v-model="phone" type="tel" placeholder="+7XXXXXXXXXX"></form-input>
       <form-input v-model="name" type="text" placeholder="Как вас зовут?"></form-input>
       <form-input v-model="email" type="email" placeholder="E-mail"></form-input>
-      <button class="submit" @click="sendData">Отправить</button>
+
+      <div class="errors" v-if="errors.length > 0">
+        <p class="error" v-for="err in errors" :key="err">{{ err }}</p>
+      </div>
+
+      <button type="submit">Отправить</button>
     </form>
   </section>
 </template>
@@ -22,6 +27,7 @@ export default {
       phone: '',
       name: '',
       email: '',
+      errors: [],
     }
   },
   components: {FormInput},
@@ -45,6 +51,42 @@ export default {
         this.name = '';
         this.email = '';
       }
+    },
+    validateInput(attr, re, err) {
+      const isNotValidAndErrNotExists = !re.test(attr) && !this.errors.includes(err);
+
+      if (isNotValidAndErrNotExists) {
+        this.errors.push(err);
+      }
+    },
+    submitForm() {
+      this.errors = [];
+      const error = 'Пожалуйста, заполните все поля';
+      if (!this.name || !this.phone) {
+        if (!this.errors.includes(error)) this.errors.push(error);
+        return;
+      }
+      
+      this.validateInput(
+        this.phone, /^(\+7|8)\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{2}[\s.-]?\d{2}$/,
+        'Некорректный номер телефона'
+      );
+      this.validateInput(
+        this.name, /^[аАбБвВгГдДеЕёЁжЖзЗиИйЙкКлЛмМнНоОпПрРсСтТуУфФхХцЦчЧшШщЩъЪыЫьЬэЭюЮяЯ]+$/,
+        'Некорректное имя'
+      );
+
+      if (this.email) {
+        this.validateInput(
+          this.name,
+          /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu,
+          'Некорректный E-mail'
+        );
+      }
+
+      if (this.errors.length === 0) {
+        this.sendData();
+      }
     }
   }
 }
@@ -53,7 +95,7 @@ export default {
 
 <style lang="scss" scoped>
 #leave-request {
-  min-width: 250px;
+  min-width: 300px;
   padding: 30px;
   box-shadow: 3px 3px 10px $border-dark, -3px -3px 10px $border-dark;
   background-color: $background-accent;
@@ -66,7 +108,7 @@ export default {
   gap: 30px;
 }
 
-.submit {
+button[type=submit] {
   cursor: pointer;
   width: 200px;
   height: 40px;
@@ -76,5 +118,19 @@ export default {
   background-color: $background-dark;
   border: 0;
   font-weight: bold;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
+
+.errors {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .error {
+    color: $text-light;
+  }
+} 
 </style>
