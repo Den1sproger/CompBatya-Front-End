@@ -32,8 +32,10 @@ export default {
   border: 1px solid $border-accent;
   background-color: $background-light;
 
-  &:hover {
-    background-color: $background-dark;
+  @media (min-width: 1024px) {
+    &:hover {
+      background-color: $background-dark;
+    } 
   }
 }
 </styles>
