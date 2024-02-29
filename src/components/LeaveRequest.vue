@@ -10,6 +10,8 @@
         <p class="error" v-for="err in errors" :key="err">{{ err }}</p>
       </div>
 
+      <p class="request-sended" v-if="isRequestSended">Заявка отправлена!</p>
+
       <button type="submit">Отправить</button>
     </form>
   </section>
@@ -28,6 +30,7 @@ export default {
       name: '',
       email: '',
       errors: [],
+      isRequestSended: false,
     }
   },
   components: {FormInput},
@@ -44,6 +47,7 @@ export default {
         if (response.status !== 201) {
           throw new Error();
         }
+        this.isRequestSended = true;
       } catch (e) {
         alert(e);
       } finally {
