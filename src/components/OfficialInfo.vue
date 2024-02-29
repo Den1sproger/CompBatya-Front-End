@@ -20,5 +20,14 @@
   height: 80px;
   padding: 0 50px;
   color: $text-dark;
+
+  @media (max-width: 768px) {
+    padding: 0 30px;
+  }
+
+  @media (max-width: 425px) {
+    padding: 0 10px;
+    font-size: 12px;
+  }
 }
 </style>

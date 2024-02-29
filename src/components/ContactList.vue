@@ -33,6 +33,25 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
+
+  @media (max-width: 1024px) {
+    justify-content: space-between;
+  }
+
+  @media (max-width: 768px) {
+    padding: 50px 50px;
+  }
+
+  @media (max-width: 675px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+
+  @media (max-width: 435px) {
+    padding: 40px 20px;
+  }
 }
 
 .contacts,
@@ -49,5 +68,12 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @media (max-width: 375px) {
+    address,
+    p {
+      font-size: 14px;
+    }
+  }
 }
 </style>
