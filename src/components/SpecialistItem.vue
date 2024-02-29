@@ -42,6 +42,7 @@ export default {
       specialists: [],
       showedSpecialists: [],
       currentSlice: 0,
+      step: 0,
     }
   },
   components: {
@@ -58,7 +59,16 @@ export default {
         const response = await axios.get(url);
         this.specialists = response.data.results;
 
-        this.currentSlice = window.innerWidth > 768 ? 8 : 4;
+        if (window.innerWidth > 1375) {
+          this.currentSlice = 8;
+          this.step = 4;
+        } else if (window.innerWidth > 1030) {
+          this.currentSlice = 6;
+          this.step = 3;
+        } else {
+          this.currentSlice = 4;
+          this.step = 2
+        }
         this.showedSpecialists = this.specialists.slice(0, this.currentSlice);
       } catch (e) {
         this.isError = true;
@@ -68,7 +78,7 @@ export default {
     },
     refreshSpecialists() {
       const oldSlice = this.currentSlice;
-      this.currentSlice += 4;
+      this.currentSlice += this.step;
       const addingItems = this.specialists.slice(oldSlice, this.currentSlice);
       this.showedSpecialists.push(...addingItems);
     }
