@@ -119,5 +119,17 @@ export default {
   grid-template-columns: repeat(4, 1fr);
   column-gap: 40px;
   row-gap: 40px;
+
+  @media (max-width: 1375px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 1030px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 675px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 </style>
