@@ -42,6 +42,10 @@ export default {
     transform: skew(-25deg);
     width: 280px;
     height: 350px;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 }
 
@@ -76,6 +80,27 @@ export default {
     p {
       font-size: 18px;
     }
+
+    @media (max-width: 540px) {
+      h1 {
+        font-size: 28px;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 425px) {
+      padding: 20px 40px;
+    }
+  }
+
+  @media (max-width: 1050px) {
+    position: static;
+
+    div {
+      width: 100%;
+    }
   }
 }
 
@@ -94,10 +119,12 @@ export default {
   box-shadow: 12px 6px 10px $border-dark;
   transition: box-shadow .1s;
 
-  &:hover {
-    box-shadow: 4px 2px 7px $border-dark;
-    color: $text-light;
-    background-color: $background-dark;
+  @media (min-width: 1024px) {
+    &:hover {
+      box-shadow: 4px 2px 7px $border-dark;
+      color: $text-light;
+      background-color: $background-dark;
+    }
   }
 }
 
@@ -109,6 +136,10 @@ export default {
 
   img {
     height: 100%;
+  }
+
+  @media (max-width: 1050px) {
+    display: none;
   }
 }
 </style>
