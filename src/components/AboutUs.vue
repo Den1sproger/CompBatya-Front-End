@@ -43,10 +43,38 @@
   justify-content: center;
   align-items: flex-start;
   gap: 100px;
+
+  @media (max-width: 1220px) {
+    padding: 25px 50px;
+    gap: 40px
+  }
+
+  @media (max-width: 830px) {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  @media (max-width: 600px) {
+    padding: 15px;
+  }
 }
 
 .demo-photo {
   height: 350px;
+
+  @media (max-width: 1220px) {
+    height: 300px;
+  }
+
+  @media (max-width: 1024px) {
+    height: 250px;
+  }
+
+  @media (max-width: 425px) {
+    height: 200px;
+  }
 }
 
 .description {
@@ -60,6 +88,11 @@
     &:hover {
       text-decoration: underline;
     }
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+    line-height: 24px;
   }
 }
 </style>
