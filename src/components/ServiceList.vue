@@ -32,5 +32,14 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 8px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 375px) {
+    font-size: 12px;
+    list-style: none;
+  }
 }
 </style>

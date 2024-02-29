@@ -2,9 +2,11 @@
   <section id="services">
     <h2>Услуги</h2>
 
-    <div class="services" v-if="!isServiceLoading && !isError">
-      <service-list :services="desktopServices" :title="desktopTitle"></service-list>
-      <service-list :services="mobileServices" :title="mobileTitle"></service-list>
+    <div class="services-wrapper" v-if="!isServiceLoading && !isError">
+      <div class="services">
+        <service-list :services="desktopServices" :title="desktopTitle"></service-list>
+        <service-list :services="mobileServices" :title="mobileTitle"></service-list>
+      </div>
     </div>
 
     <loading-mark v-else-if="isServiceLoading"></loading-mark>
@@ -83,6 +85,30 @@ export default {
   justify-content: flex-start;
   align-items: center;
   gap: 20px;
+
+  @media (max-width: 768px) {
+    p {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 375px) {
+    padding: 40px 20px;
+    p {
+      font-size: 12px;
+    }
+  }
+}
+
+.services-wrapper {
+  width: 100%;
+
+  @media (max-width: 660px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .services {
@@ -91,5 +117,12 @@ export default {
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
+
+  @media (max-width: 660px) {
+    width: auto;
+    gap: 30px;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }
 </style>

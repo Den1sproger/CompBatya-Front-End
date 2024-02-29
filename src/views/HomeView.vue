@@ -36,5 +36,10 @@ export default {
   justify-content: center;
   align-items: flex-start;
   gap: 40px;
+
+  @media (max-width: 1085px) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 </style>
