@@ -35,6 +35,10 @@ export default {
   box-sizing: border-box;
 }
 
+body.lock {
+  overflow-y: hidden;
+}
+
 header {
   width: 100%;
   height: 100px;
